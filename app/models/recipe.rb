@@ -9,13 +9,16 @@ class Recipe < ApplicationRecord
     accepts_nested_attributes_for :ingredients
     accepts_nested_attributes_for :recipe_ingredients
 
-    def self.sort_by_asc_order
-        order(:created_at)
-    end
+    # def self.asc_order_created_at
+    #     order(:created_at)
+    # end
 
-    def self.sort_by_desc_order
-        order(created_at: :desc)
-    end
+    # scope :asc_order_created_at, -> ( order(:created_at) )
 
-    # def self.
+    # def self.desc_order_created_at
+    #     order(created_at: :desc)
+    # end
+
+    # scope :desc_order_created_at, -> ( order(created_at: :desc) )
+
 end
