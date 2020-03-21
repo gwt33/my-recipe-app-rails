@@ -10,7 +10,7 @@ User (devise)
 
 Recipe
     - belongs_to :user
-    - has_many :ingredients
+    - has_many :ingredients, through: :recipe_inredients
     - description
     <!-- - belongs_to :category -->
 
