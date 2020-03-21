@@ -17,6 +17,9 @@ Recipe
 RecipeIngredients (join table)
     - belongs to recipes
     - belongs to ingredients
+    - recipe id
+    - ingredients id
+    - quantity
 
 Ingredients
     - belongs_to :recipe
