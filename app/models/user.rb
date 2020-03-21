@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
   has_many :recipes
 
   validates :email, presence: true, uniqueness: true
@@ -13,7 +13,7 @@ class User < ApplicationRecord
     data = access_token.info
     user = User.find_by(email: data['email'])
       
-          # Uncomment the section below if you want users to be created if they don't exist
+    # Uncomment the section below if you want users to be created if they don't exist
     unless user
       user = User.create(
           email: data['email'],
