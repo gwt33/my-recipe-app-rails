@@ -1,0 +1,36 @@
+<h2>Change Your Recipe!</h2>
+
+<%= form_for @recipe do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+<br><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+<br><br>
+    <%= f.label :directions %>
+    <%= f.text_area :directions %>
+<br><br>
+
+<h3>Add New Ingredients:</h3>
+
+    <!-- Double Nested Form -->
+    <!-- plural for has many association -->
+    <%= f.fields_for :recipe_ingredients do |rec_ingr| %>
+
+        <!-- singular for belongs to association -->
+        <%= rec_ingr.fields_for :ingredient do |ingr| %>
+            <div class="field">
+                <%= ingr.label :name %>   
+                <%= ingr.text_field :name %> <%= rec_ingr.label :quantity %> <%= rec_ingr.text_field :quantity %>
+                <!-- <%= ingr.check_box :_destroy %>
+                <%= ingr.label :_destroy, 'delete' %>-->
+                <br>
+            </div>
+        <% end %>
+    <% end %>
+        <br>
+
+
+    <%= f.submit %>
+
+<% end %>
