@@ -1,0 +1,8 @@
+<%= f.fields_for :ingredients do |ingr| %>
+      <div class="field">
+        <%= ingr.label :name %>
+        <%= ingr.text_field :name %>
+        <%= ingr.check_box :_destroy %>
+        <%= ingr.label :_destroy, 'delete' %>
+    </div>`
+<% end %>
