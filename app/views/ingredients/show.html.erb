@@ -1,0 +1,23 @@
+<h1> <%= @ingredient.name %> </h1>
+<br>
+
+<h3>Recipes with this Ingredient!</h3>
+<ul>
+  <% @ingredient.recipe_ingredients.each do |ri|%>
+    <li><strong><%= link_to ri.recipe.name, ingredient_path(ri.recipe)%></strong> - <%=ri.description%></li>
+  <% end %>
+</ul>
+
+<br>
+
+<p> <%= @recipe.directions %> </p>
+
+<br>
+    <div>
+      <% if user_signed_in? -%>
+        <%= button_to "Edit", edit_recipe_path(@recipe) %>
+        <br>
+        <%= button_to "Delete", recipe_path(@recipe), method: 'delete' %>
+      <% end %>
+    </div>
+
