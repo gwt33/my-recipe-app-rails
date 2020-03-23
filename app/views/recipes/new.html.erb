@@ -1,0 +1,28 @@
+<h2>New Recipe page</h2>
+
+<%= form_for @recipe do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+<br><br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+<br><br>
+    <%= f.label :directions %>
+    <%= f.text_area :directions %>
+<br><br>
+
+<h3>Ingredients:</h3>
+
+    <%= f.fields_for :ingredients do |ingr| %>
+        <div class="field">
+            <%= ingr.label :name %>
+            <%= ingr.text_field :name %>
+            <%= ingr.check_box :_destroy %>
+            <%= ingr.label :_destroy, 'delete' %>
+            <br>
+        </div>
+    <% end %>
+
+    <%= f.submit %>
+
+<% end %>
